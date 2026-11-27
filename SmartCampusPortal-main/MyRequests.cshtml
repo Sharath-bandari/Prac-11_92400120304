@@ -1,0 +1,7 @@
+@model IEnumerable<ServiceRequest>
+@{ ViewData["Title"] = "My Requests"; }
+<div class="d-flex justify-content-between align-items-center mb-3"><div><h2>My Service Requests</h2><p class="text-secondary mb-0">Track the progress of your submissions.</p></div><a class="btn btn-primary" asp-action="CreateRequest">New Request</a></div>
+<div class="table-responsive card p-3"><table class="table align-middle"><thead><tr><th>ID</th><th>Title</th><th>Category</th><th>Date</th><th>Status</th><th>Admin Remark</th></tr></thead><tbody>
+@foreach (var r in Model) { <tr><td>#@r.Id</td><td>@r.Title</td><td>@r.Category</td><td>@r.CreatedOn.ToLocalTime().ToString("dd MMM yyyy")</td><td><span class="status">@r.Status</span></td><td>@(r.AdminRemark ?? "-")</td></tr> }
+@if (!Model.Any()) { <tr><td colspan="6" class="text-center text-secondary">No requests submitted yet.</td></tr> }
+</tbody></table></div>

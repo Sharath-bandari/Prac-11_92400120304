@@ -1,0 +1,11 @@
+@{ ViewData["Title"] = "Student Dashboard"; }
+<h2 class="mb-1">Student Dashboard</h2><p class="text-secondary">Welcome, @Context.Session.GetString("UserName").</p>
+<div class="row g-3 my-2">
+    <div class="col-md-4"><div class="stat-card"><span>Total Requests</span><strong>@ViewBag.Total</strong></div></div>
+    <div class="col-md-4"><div class="stat-card"><span>Pending Requests</span><strong>@ViewBag.Pending</strong></div></div>
+    <div class="col-md-4"><div class="stat-card"><span>Completed Requests</span><strong>@ViewBag.Completed</strong></div></div>
+</div>
+<div class="row g-3 mt-2">
+    <div class="col-md-6"><div class="feature-card"><h5>Need campus assistance?</h5><p>Submit a new complaint or service request.</p><a class="btn btn-primary" asp-action="CreateRequest">Create Request</a></div></div>
+    <div class="col-md-6"><div class="feature-card"><h5>Track your requests</h5><p>Check updates and administrator remarks.</p><a class="btn btn-outline-primary" asp-action="MyRequests">View My Requests</a></div></div>
+</div>

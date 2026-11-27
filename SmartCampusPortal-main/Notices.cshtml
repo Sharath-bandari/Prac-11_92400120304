@@ -1,0 +1,4 @@
+@model IEnumerable<CampusNotice>
+@{ ViewData["Title"] = "Campus Notices"; }
+<h2>Campus Notices</h2><p class="text-secondary">Announcements from campus administration.</p>
+@foreach (var n in Model) { <div class="card shadow-sm mb-3"><div class="card-body"><h5>@n.Title</h5><p>@n.Message</p><small class="text-secondary">@n.PostedOn.ToLocalTime().ToString("dd MMM yyyy, hh:mm tt")</small></div></div> }

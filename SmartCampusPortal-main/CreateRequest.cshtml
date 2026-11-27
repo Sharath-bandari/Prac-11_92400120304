@@ -1,0 +1,11 @@
+@model RequestViewModel
+@{ ViewData["Title"] = "New Service Request"; }
+<div class="form-card wide"><h2>Submit Service Request</h2><p class="text-secondary">Describe the issue so campus staff can help.</p>
+<form asp-action="CreateRequest" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="mb-3"><label asp-for="Title" class="form-label">Request Title</label><input asp-for="Title" class="form-control" placeholder="e.g. Projector not working" /><span asp-validation-for="Title" class="text-danger"></span></div>
+    <div class="mb-3"><label asp-for="Category" class="form-label"></label><select asp-for="Category" class="form-select"><option>Maintenance</option><option>IT Support</option><option>Library</option><option>Transport</option><option>Hostel</option><option>Other</option></select></div>
+    <div class="mb-3"><label asp-for="Description" class="form-label"></label><textarea asp-for="Description" class="form-control" rows="5" placeholder="Explain your request..."></textarea><span asp-validation-for="Description" class="text-danger"></span></div>
+    <button class="btn btn-primary">Submit Request</button> <a class="btn btn-outline-secondary" asp-action="Index">Cancel</a>
+</form></div>
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }
